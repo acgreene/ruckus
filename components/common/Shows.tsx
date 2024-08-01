@@ -40,9 +40,9 @@ const Shows: React.FC<ShowsProps> = ({}) => {
 
   useEffect(() => {
     getShows().then(() => {});
-  });
+  }, []);
   return (
-    <div className="w-full min-h-screen flex justify-center items-start pt-24 pb-4">
+    <div className="w-full min-h-screen sm:min-h-[50vh] flex justify-center items-start pt-24 pb-4">
       <div>
         <span className={`${blockFont.className} uppercase text-2xl`}>
           Show Dates
@@ -54,7 +54,7 @@ const Shows: React.FC<ShowsProps> = ({}) => {
                 {shows.map((show, index) => (
                   <div
                     key={index}
-                    className="flex flex-col space-y-1 rounded-lg p-1"
+                    className="flex flex-col sm:flex-row sm:space-x-12 space-y-1 rounded-lg p-1"
                   >
                     <span
                       className={`${featureFont.className} text-2xl text-ruckus-blue font-bold`}

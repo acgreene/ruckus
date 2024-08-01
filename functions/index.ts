@@ -1,3 +1,5 @@
+import validator from "validator";
+
 /**
  *
  @param colorA the outside colors in the gradient.
@@ -21,4 +23,11 @@ export function makeColorGradient(
 export function isValidEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
+}
+
+/**
+ * @param phone the phone number to test
+ */
+export function isValidPhoneNumber(phone: string): boolean {
+  return validator.isMobilePhone(phone);
 }

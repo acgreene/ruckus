@@ -7,6 +7,7 @@ import { menuLinks } from "@/constants/menuLinks";
 import Link from "next/link";
 import Socials from "@/components/common/Socials";
 import EmailSubscribe from "@/components/common/EmailSubscribe";
+import { blockFont } from "@/fonts";
 
 interface MenuProps {
   // Define your prop types here
@@ -51,7 +52,9 @@ const Menu: React.FC<MenuProps> = ({}) => {
                 <div
                   className={`w-full  h-full justify-center items-center flex`}
                 >
-                  <span className="text-3xl xs:text-5xl sm:text-7xl md:text-8xl hover:text-ruckus-yellow transition-all duration-300">
+                  <span
+                    className={`${blockFont.className} text-xl uppercase xs:text-5xl sm:text-7xl md:text-8xl hover:text-ruckus-yellow transition-all duration-300`}
+                  >
                     {link.name}
                   </span>
                 </div>

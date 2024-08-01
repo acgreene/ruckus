@@ -16,9 +16,9 @@ const Menu: React.FC<MenuProps> = ({}) => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="h-full justify-center items-center w-1/2 sm:w-56">
+    <div className="h-full w-1/2 sm:w-56">
       {/* open menu button */}
-      <div className="border-l h-full p-8 justify-center items-center flex w-full">
+      <div className="border-l h-full p-8 flex relative justify-center items-center w-full">
         <button
           onClick={() => setToggle(!toggle)}
           className="flex justify-center items-center"
@@ -33,7 +33,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
           scale: `${toggle ? "1" : "0"}`,
           rotate: `${toggle ? "0deg" : "120deg"}`,
           opacity: `${toggle ? "1" : "0"}`,
-          backgroundImage: `${makeColorGradient("#6F79DC", "#F84125")}`,
+          backgroundImage: `${makeColorGradient("#3A2015", "#EFC258")}`,
           backgroundSize: "1000% 1000%",
         }}
       >

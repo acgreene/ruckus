@@ -13,7 +13,7 @@ const Nav: React.FC<NavProps> = ({}) => {
       <div className="md:ml-8 justify-center items-center overflow-hidden relative flex w-1/2 md:w-fit">
         <Link href="/">
           <span
-            className={`${featureFont.className} uppercase text-lg md:text-4xl`}
+            className={`${featureFont.className} uppercase text-lg xs:text-2xl sm:text-4xl`}
           >
             The Ruckus
           </span>

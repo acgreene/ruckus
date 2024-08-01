@@ -6,7 +6,7 @@ interface PhotoStephProps {
 
 const PhotoSteph: React.FC<PhotoStephProps> = ({}) => {
   return (
-    <div className="absolute overflow-hidden filter grayscale top-1/2 left-0 -translate-x-[-60%] -translate-y-[50%] flex w-[300px] h-[420px] rotate-[-2deg]">
+    <div className="absolute overflow-hidden filter grayscale top-1/2 left-0 -translate-x-[-60%] -translate-y-[50%] flex w-[150px] sm:w-[300px] h-[210px] sm:h-[420px] rotate-[-2deg]">
       <img src="/IMG_2.JPG" className="w-full h-full object-cover scale-[2]" />
     </div>
   );

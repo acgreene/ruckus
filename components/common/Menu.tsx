@@ -33,7 +33,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
           scale: `${toggle ? "1" : "0"}`,
           rotate: `${toggle ? "0deg" : "120deg"}`,
           opacity: `${toggle ? "1" : "0"}`,
-          backgroundImage: `${makeColorGradient("#3A2015", "#EFC258")}`,
+          backgroundImage: `${makeColorGradient("#000000", "#080808")}`,
           backgroundSize: "1000% 1000%",
         }}
       >

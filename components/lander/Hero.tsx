@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Marquee from "@/components/common/Marquee";
 import PhotoIanEli from "@/components/photos/PhotoIanEli";
 import PhotoAdam from "@/components/photos/PhotoAdam";
@@ -13,6 +13,26 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({}) => {
+  const [speed, setSpeed] = useState(24);
+
+  useEffect(() => {
+    const updateSpeed = () => {
+      if (typeof window !== "undefined") {
+        setSpeed(window.innerWidth < 500 ? 8 : 24);
+      }
+    };
+
+    // Set speed on mount
+    updateSpeed();
+
+    // Update speed on resize
+    window.addEventListener("resize", updateSpeed);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener("resize", updateSpeed);
+    };
+  }, []);
   return (
     <div className="h-screen w-full flex justify-center items-center">
       <div className="w-full h-full flex top-[48%] absolute rotate-[-3deg] scale-125 z-20">
@@ -24,7 +44,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
               </span>
             </div>
           }
-          speed={window.innerWidth < 500 ? 8 : 24}
+          speed={speed}
           direction={true}
         />
       </div>
@@ -37,7 +57,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
               </span>
             </div>
           }
-          speed={window.innerWidth < 500 ? 8 : 24}
+          speed={speed}
           direction={true}
         />
       </div>
@@ -50,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
               </span>
             </div>
           }
-          speed={window.innerWidth < 500 ? 8 : 24}
+          speed={speed}
           direction={true}
         />
       </div>

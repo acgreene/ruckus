@@ -36,6 +36,9 @@ const config: Config = {
       animation: {
         gradient: "moveGradient 100s linear infinite",
       },
+      fontSize: {
+        xxs: "9px",
+      },
     },
     colors: {
       "back-heavy": "#14181c",

@@ -7,6 +7,7 @@ import PhotoSteph from "@/components/photos/PhotoSteph";
 import PhotoHorns from "@/components/photos/PhotoHorns";
 import Link from "next/link";
 import { spotify } from "@/constants/socialLinks";
+import { blockFont } from "@/fonts";
 
 interface HeroProps {
   // Define your prop types here
@@ -35,7 +36,9 @@ const Hero: React.FC<HeroProps> = ({}) => {
   }, []);
   return (
     <div className="h-screen w-full flex justify-center items-center">
-      <div className="w-full h-full flex top-[48%] absolute rotate-[-3deg] scale-125 z-20">
+      <div
+        className={`${blockFont.className} w-full h-full flex top-[48%] absolute rotate-[-3deg] scale-125 z-20`}
+      >
         <Marquee
           element={
             <div className="flex px-8 border-t-ruckus-yellow border-t-4">
@@ -48,7 +51,9 @@ const Hero: React.FC<HeroProps> = ({}) => {
           direction={true}
         />
       </div>
-      <div className="w-full h-full flex top-[49%] absolute rotate-[-3deg] scale-125 z-20">
+      <div
+        className={`${blockFont.className} w-full h-full flex top-[49%] absolute rotate-[-3deg] scale-125 z-20`}
+      >
         <Marquee
           element={
             <div className="flex px-8">
@@ -61,7 +66,9 @@ const Hero: React.FC<HeroProps> = ({}) => {
           direction={true}
         />
       </div>
-      <div className="w-full h-full flex top-[50%] absolute rotate-[-3deg] scale-125 z-20">
+      <div
+        className={`${blockFont.className} w-full h-full flex top-[50%] absolute rotate-[-3deg] scale-125 z-20`}
+      >
         <Marquee
           element={
             <div className="flex px-8 border-b-ruckus-yellow border-b-4">
@@ -84,7 +91,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
 
       <div className="absolute top-[60%] left-[5%] z-30">
         <Link href="/shows">
-          <div className="border-2 border-white bg-black bg-opacity-60 rounded-xl p-1">
+          <div className="border-2 border-ruckus-yellow bg-black bg-opacity-60 rounded-xl p-1">
             <span className="uppercase font-extrabold text-white text-xs xs:text-sm sm:text-3xl">
               Show Dates
             </span>
@@ -93,7 +100,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       </div>
       <div className="absolute top-[60%] left-[50%] -translate-x-1/2 z-30">
         <a href={spotify.href} target="_blank">
-          <div className="border-2 border-white bg-black bg-opacity-60 rounded-xl p-1">
+          <div className="border-2 border-ruckus-purple bg-black bg-opacity-60 rounded-xl p-1">
             <span className="uppercase font-extrabold text-white text-xs xs:text-sm sm:text-3xl">
               Stream
             </span>
@@ -102,7 +109,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
       </div>
       <div className="absolute top-[60%] right-[5%] z-30">
         <Link href="/shop">
-          <div className="border-2 border-white bg-black bg-opacity-60 rounded-xl p-1 px-[27px] xs:px-[30px]">
+          <div className="border-2 border-ruckus-blue bg-black bg-opacity-60 rounded-xl p-1 px-[27px] xs:px-[30px]">
             <span className="uppercase font-extrabold text-white text-xs xs:text-sm sm:text-3xl">
               Shop
             </span>

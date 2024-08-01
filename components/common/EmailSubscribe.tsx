@@ -38,7 +38,7 @@ const EmailSubscribe: React.FC<EmailSubscribeProps> = ({}) => {
   };
   return (
     <div className="flex flex-col xs:space-y-1 md:space-y-2 text-wrap h-full w-full items-center justify-center">
-      <span className="text-xs xs:text-base md:text-xl text-center">
+      <span className="text-xs xs:text-base md:text-xl text-center text-ruckus-purple">
         {subscribed
           ? "Thanks will email u soon <33"
           : "Get notified about our shows!"}

@@ -18,11 +18,11 @@ const Menu: React.FC<MenuProps> = ({}) => {
   return (
     <div className="h-full w-1/2 sm:w-56">
       {/* open menu button */}
-      <div className="border-l h-full p-8 flex relative justify-center items-center w-full">
-        <button
-          onClick={() => setToggle(!toggle)}
-          className="flex justify-center items-center"
-        >
+      <div
+        className="border-l h-full p-8 flex relative cursor-pointer justify-center items-center w-full"
+        onClick={() => setToggle(!toggle)}
+      >
+        <button className="flex justify-center items-center">
           <span className="text-center">{toggle ? "Close" : "Menu"}</span>
         </button>
       </div>
@@ -73,7 +73,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
           </div>
         </div>
 
-        <div className="w-full border border-b-2">
+        <div className="w-full bg-transparent">
           <DeveloperTag />
         </div>
       </div>

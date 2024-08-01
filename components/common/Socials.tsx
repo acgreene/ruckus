@@ -23,7 +23,7 @@ const Socials: React.FC<SocialsProps> = ({ size, row }) => {
 
   return (
     <div
-      className={`justify-center items-start flex ${row ? "flex-row space-x-4" : "flex-col space-y-4"}`}
+      className={`justify-center items-start flex ${row ? "flex-row space-x-4" : "flex-col space-y-1 sm:space-y-4"}`}
     >
       {socialLinks.map((link, i) => (
         <Link href={link.href} key={i} target="_blank" rel="noreferrer">

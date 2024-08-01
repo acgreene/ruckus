@@ -9,7 +9,7 @@ interface NavProps {
 
 const Nav: React.FC<NavProps> = ({}) => {
   return (
-    <div className="z-50 flex fixed flex-row w-full h-20 border-b items-center justify-between">
+    <div className="z-50 flex fixed flex-row w-full h-20 border-b items-center justify-between bg-black bg-opacity-50">
       <div className="md:ml-8 justify-center items-center overflow-hidden relative flex w-1/2 md:w-fit">
         <Link href="/">
           <span

@@ -20,4 +20,12 @@ export const menuLinks: MenuLink[] = [
     href: "/gallery",
     name: "Gallery",
   },
+  {
+    href: "/about",
+    name: "About",
+  },
+  {
+    href: "/roster",
+    name: "Roster",
+  },
 ];

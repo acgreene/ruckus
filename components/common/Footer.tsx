@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
             </Link>
           ))}
         </div>
-        <div className="flex relative flex-col justify-center h-full w-1/2 items-center lg:flex-row-reverse">
+        <div className="flex relative flex-col justify-center h-full w-1/2 items-center lg:flex-row-reverse overflow-clip">
           <div className="w-full h-2/3 justify-center items-center flex pb-24 xs:scale-[2] lg:w-1/4">
             <WireframeGlobe />
           </div>

@@ -34,30 +34,30 @@ const EmailSubscribe: React.FC<EmailSubscribeProps> = ({}) => {
     setTimeout(() => {
       setError(null);
       setSubscribed(false);
-    }, 8000);
+    }, 5000);
   };
   return (
-    <div className="flex flex-col space-y-2">
-      <span className="text-xl">
+    <div className="flex flex-col xs:space-y-1 md:space-y-2 text-wrap h-full w-full items-center justify-center">
+      <span className="text-xs xs:text-base md:text-xl text-center">
         {subscribed
           ? "Thanks will email u soon <33"
-          : "Get notified about our shows!"}{" "}
+          : "Get notified about our shows!"}
       </span>
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-2 w-5/6">
         <input
           type="email"
           value={email}
           onChange={handleChange}
-          className="bg-transparent focus:outline-none text-xl border-b-4 text-white placeholder:text-white placeholder:text-xl"
+          className="bg-transparent focus:outline-none text-xs xs:text-base md:text-xl border-b-2 md:border-b-4 text-white placeholder:text-white placeholder:text-xs placeholder:xs:text-base placeholder:md:text-xl"
           placeholder="Your email"
           required
         />
         {error !== null ? <span className="text-red-500">{error}</span> : <></>}
         <button
           type="submit"
-          className={`border-4 rounded-xl p-2 transition-all duration-300 ${subscribed ? "bg-green-500" : "bg-transparent"}`}
+          className={`border md:border-4 rounded-xl xs:p-1 md:p-2 transition-all duration-300 ${subscribed ? "bg-green-500" : "bg-transparent"}`}
         >
-          <span className="whitespace-nowrap">
+          <span className="md:whitespace-nowrap text-xs xs:text-base md:text-xl">
             {subscribed ? "Subscribed!! :)" : "Subscribe"}
           </span>
         </button>

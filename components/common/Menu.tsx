@@ -16,11 +16,14 @@ const Menu: React.FC<MenuProps> = ({}) => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="h-full justify-center items-center">
+    <div className="h-full justify-center items-center w-1/2 sm:w-56">
       {/* open menu button */}
-      <div className="border-l h-full p-8 justify-center items-center">
-        <button onClick={() => setToggle(!toggle)}>
-          <span>{toggle ? "Close" : "Menu"}</span>
+      <div className="border-l h-full p-8 justify-center items-center flex w-full">
+        <button
+          onClick={() => setToggle(!toggle)}
+          className="flex justify-center items-center"
+        >
+          <span className="text-center">{toggle ? "Close" : "Menu"}</span>
         </button>
       </div>
       {/* toggled open menu */}
@@ -48,7 +51,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
                 <div
                   className={`w-full  h-full justify-center items-center flex`}
                 >
-                  <span className="text-8xl hover:text-ruckus-brown transition-all duration-300">
+                  <span className="text-3xl xs:text-5xl sm:text-7xl md:text-8xl hover:text-ruckus-brown transition-all duration-300">
                     {link.name}
                   </span>
                 </div>
@@ -57,9 +60,14 @@ const Menu: React.FC<MenuProps> = ({}) => {
           </div>
           <div className="w-full h-1/4 flex flex-row">
             <div className="flex w-1/2 h-full justify-center items-center">
-              <Socials size={6} />
+              <div className="hidden md:flex">
+                <Socials size={6} />
+              </div>
+              <div className="flex md:hidden">
+                <Socials size={1} />
+              </div>
             </div>
-            <div className="w-1/2 h-full flex justify-center items-center">
+            <div className="w-1/2 h-full flex justify-center items-center p-1">
               <EmailSubscribe />
             </div>
           </div>

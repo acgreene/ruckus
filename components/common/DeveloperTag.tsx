@@ -11,7 +11,7 @@ const DeveloperTag: React.FC<DeveloperTagProps> = ({}) => {
       element={
         <a href="https://www.instagram.com/aleccgreene/">
           <div className="px-8">
-            <span className="text-white text-xl">
+            <span className="text-white text-sm md:text-xl">
               developed by @aleccgreene {""}
             </span>
           </div>

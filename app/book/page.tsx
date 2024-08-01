@@ -5,7 +5,7 @@ interface PageProps {
 }
 
 const Page: React.FC<PageProps> = ({}) => {
-  return <div>Page</div>;
+  return <div>Bookings</div>;
 };
 
 export default Page;

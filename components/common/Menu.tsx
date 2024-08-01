@@ -51,7 +51,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
                 <div
                   className={`w-full  h-full justify-center items-center flex`}
                 >
-                  <span className="text-3xl xs:text-5xl sm:text-7xl md:text-8xl hover:text-ruckus-brown transition-all duration-300">
+                  <span className="text-3xl xs:text-5xl sm:text-7xl md:text-8xl hover:text-ruckus-yellow transition-all duration-300">
                     {link.name}
                   </span>
                 </div>

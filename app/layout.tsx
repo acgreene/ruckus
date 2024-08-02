@@ -5,6 +5,7 @@ import Nav from "@/components/common/Nav";
 import Footer from "@/components/common/Footer";
 import { primaryFont } from "@/fonts";
 import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 export const metadata: Metadata = {

@@ -61,6 +61,10 @@ const Page: React.FC<PageProps> = ({}) => {
 
         <CaptionedImg caption="October 2021: Lutherween" img_src="/IMG_8.JPG" />
 
+        <CaptionedImg
+          caption="November 2021: UMich Diag"
+          img_src="/IMG_21.JPG"
+        />
         <CaptionedImg caption="November 2021" img_src="/IMG_3.JPG" />
         <CaptionedImg caption="February 2022: TedxUofM" img_src="/IMG_10.JPG" />
         <CaptionedImg caption="March 2022: Studio A" img_src="/IMG_11.jpg" />

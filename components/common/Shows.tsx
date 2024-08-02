@@ -42,7 +42,7 @@ const Shows: React.FC<ShowsProps> = ({}) => {
     getShows().then(() => {});
   }, []);
   return (
-    <div className="w-full min-h-screen sm:min-h-[50vh] flex justify-center items-start pt-24 pb-4">
+    <div className="w-full min-h-screen sm:min-h-[50vh] flex justify-center items-start">
       <div>
         <span className={`${blockFont.className} uppercase text-2xl`}>
           Show Dates

@@ -9,7 +9,7 @@ interface PageProps {
 
 const Page: React.FC<PageProps> = ({}) => {
   return (
-    <div className="flex pt-24 pb-6 px-2 flex-col min-h-screen justify-center items-start space-y-8">
+    <div className="flex px-2 flex-col min-h-screen justify-center items-start space-y-8">
       <div className="pl-2">
         <span className={`${blockFont.className} uppercase text-2xl`}>
           Roster

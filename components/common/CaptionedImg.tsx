@@ -1,7 +1,7 @@
 import React from "react";
 import { featureFont } from "@/fonts";
 
-interface CaptionedImgProps {
+export interface CaptionedImgProps {
   caption: string;
   img_src: string;
   className?: string;

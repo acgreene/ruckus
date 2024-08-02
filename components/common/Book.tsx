@@ -128,7 +128,7 @@ const Book: React.FC<BookProps> = ({}) => {
   }
 
   return (
-    <div className="w-full min-h-screen flex flex-col space-y-4 justify-center items-center pt-24 pb-4 px-2">
+    <div className="w-full min-h-screen flex flex-col space-y-4 justify-center items-center px-2">
       {bookingSuccess ? (
         <span className="text-green-500 text-center">
           Thank you for submitting a booking request! We will be in touch with

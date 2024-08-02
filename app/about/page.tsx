@@ -15,7 +15,7 @@ const Page: React.FC<PageProps> = ({}) => {
         The Ruckus
       </span>
 
-      <span className={``}>
+      <span className={`sm:text-2xl`}>
         An{" "}
         <span
           className={`${featureFont.className} uppercase text-ruckus-yellow`}
@@ -30,14 +30,14 @@ const Page: React.FC<PageProps> = ({}) => {
         band based out of <span className={``}>New York City</span>
       </span>
 
-      <span>
+      <span className="sm:text-2xl">
         <span className={`${featureFont.className} text-ruckus-purple`}>
           Throwback
         </span>{" "}
         funk, rnb and soul
       </span>
 
-      <span>
+      <span className="sm:text-2xl">
         Will bring energy to any event with its organic band chemistry and a{" "}
         <span className={`${featureFont.className} text-ruckus-blue`}>
           genre fluid
@@ -45,9 +45,9 @@ const Page: React.FC<PageProps> = ({}) => {
         repertoire of more than 5 hours of music
       </span>
 
-      <span>Started in 2021 in Ann Arbor, MI</span>
+      <span className="sm:text-2xl">Started in 2021 in Ann Arbor, MI</span>
 
-      <span className={`${blockFont.className} uppercase text-xl`}>
+      <span className={`${blockFont.className} uppercase text-xl sm:text-4xl`}>
         Snapshots through the years
       </span>
 

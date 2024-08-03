@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ShoppingBag } from "@/zustand";
 import { RiCloseLargeLine } from "react-icons/ri";
 import { useShallow } from "zustand/react/shallow";
@@ -16,7 +16,12 @@ const Bag: React.FC<BagProps> = ({}) => {
     useShallow((state: any) => ({ products: state.products })),
   );
 
-  const fromPath = localStorage.getItem("toBagRoute");
+  const [fromPath, setFromPath] = useState<any>("");
+
+  useEffect(() => {
+    const val = localStorage.getItem("toBagRoute");
+    setFromPath(val);
+  }, []);
 
   return (
     <div

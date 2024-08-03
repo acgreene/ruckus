@@ -4,14 +4,14 @@ import React from "react";
 import { useBagStore } from "@/zustand";
 
 interface RemoveFromBagProps {
-  // Define your prop types here
+  stripePriceId: string;
 }
 
-const RemoveFromBag: React.FC<RemoveFromBagProps> = ({}) => {
+const RemoveFromBag: React.FC<RemoveFromBagProps> = ({ stripePriceId }) => {
   const removeFromBag = useBagStore((state: any) => state.removeProduct);
 
   const handleRemoveFromBag = () => {
-    removeFromBag("test_stripe_id");
+    removeFromBag(stripePriceId);
   };
   return <button onClick={handleRemoveFromBag}>Remove from bag</button>;
 };

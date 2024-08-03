@@ -4,14 +4,14 @@ import React from "react";
 import { useBagStore } from "@/zustand";
 
 interface AddToBagProps {
-  // Define your prop types here
+  stripePriceId: string;
 }
 
-const AddToBag: React.FC<AddToBagProps> = ({}) => {
+const AddToBag: React.FC<AddToBagProps> = ({ stripePriceId }) => {
   const addToBag = useBagStore((state: any) => state.addProduct);
 
   const handleAddToBag = () => {
-    addToBag("test_stripe_id");
+    addToBag(stripePriceId);
   };
 
   return <button onClick={handleAddToBag}>Add to bag</button>;

@@ -19,8 +19,8 @@ export default function ProductPage({
   return (
     <div className="flex flex-col space-y-2">
       <span>My product: {params.product}</span>
-      <AddToBag />
-      <RemoveFromBag />
+      <AddToBag stripePriceId={params.product} />
+      <RemoveFromBag stripePriceId={params.product} />
       <ClearBag />
     </div>
   );

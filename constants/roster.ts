@@ -31,8 +31,8 @@ export const roster: RosterEntryProps[] = [
   },
   {
     name: "Samuel Uribe",
-    instruments: ["Tenor Saxophone"],
-    img_src: "/sam.png",
+    instruments: ["Production, Tenor Saxophone"],
+    img_src: "/sam_roster.jpg",
     href: "https://www.instagram.com/sam.uribe.b/",
     handle: "sam.uribe.b",
   },

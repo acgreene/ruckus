@@ -1,3 +1,7 @@
+import AddToBag from "@/components/shop/bag/AddToBag";
+import RemoveFromBag from "@/components/shop/bag/RemoveFromBag";
+import ClearBag from "@/components/shop/bag/ClearBag";
+
 export default function ProductPage({
   params,
 }: {
@@ -10,10 +14,14 @@ export default function ProductPage({
 
   // if product does not exist, redirect to 404 page
 
-  console.log(params.product);
+  // console.log(params.product);
+
   return (
-    <div>
+    <div className="flex flex-col space-y-2">
       <span>My product: {params.product}</span>
+      <AddToBag />
+      <RemoveFromBag />
+      <ClearBag />
     </div>
   );
 }

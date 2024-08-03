@@ -1,6 +1,5 @@
 import AddToBag from "@/components/shop/bag/AddToBag";
 import RemoveFromBag from "@/components/shop/bag/RemoveFromBag";
-import ClearBag from "@/components/shop/bag/ClearBag";
 
 export default function ProductPage({
   params,
@@ -21,7 +20,6 @@ export default function ProductPage({
       <span>My product: {params.product}</span>
       <AddToBag stripePriceId={params.product} />
       <RemoveFromBag stripePriceId={params.product} />
-      <ClearBag />
     </div>
   );
 }

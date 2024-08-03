@@ -1,30 +1,36 @@
 "use client";
 
 import React from "react";
-import { useBagStore } from "@/zustand";
+import { ShoppingBag } from "@/zustand";
 import { useShallow } from "zustand/react/shallow";
+import { usePathname, useRouter } from "next/navigation";
 
 interface ShopHeaderProps {
   // Define your prop types here
 }
 
 const ShopHeader: React.FC<ShopHeaderProps> = ({}) => {
-  const { count } = useBagStore(
+  const { count } = ShoppingBag(
     useShallow((state: any) => ({ count: state.count })),
   );
 
-  const { products } = useBagStore(
+  const { products } = ShoppingBag(
     useShallow((state: any) => ({ products: state.products })),
   );
 
+  const router = useRouter();
+  const pathname = usePathname();
+
+  function handleNavigationToBag() {
+    localStorage.setItem("toBagRoute", pathname);
+    router.push("/bag");
+  }
+
   return (
     <div className="w-full flex flex-col justify-end items-center">
-      <span>Bag ({count})</span>
-
-      <span>products in bag: </span>
-      {products.map((p: string, index: number) => (
-        <span key={index}>{p}</span>
-      ))}
+      <button onClick={handleNavigationToBag}>
+        <span>Bag ({count})</span>
+      </button>
     </div>
   );
 };

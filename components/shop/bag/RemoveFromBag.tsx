@@ -1,19 +1,23 @@
 "use client";
 
 import React from "react";
-import { useBagStore } from "@/zustand";
+import { ShoppingBag } from "@/zustand";
 
 interface RemoveFromBagProps {
   stripePriceId: string;
 }
 
 const RemoveFromBag: React.FC<RemoveFromBagProps> = ({ stripePriceId }) => {
-  const removeFromBag = useBagStore((state: any) => state.removeProduct);
+  const removeFromBag = ShoppingBag((state: any) => state.removeProduct);
 
   const handleRemoveFromBag = () => {
     removeFromBag(stripePriceId);
   };
-  return <button onClick={handleRemoveFromBag}>Remove from bag</button>;
+  return (
+    <button onClick={handleRemoveFromBag}>
+      <span>Delete</span>
+    </button>
+  );
 };
 
 export default RemoveFromBag;

@@ -1,11 +1,12 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export const useBagStore = create(
+export const ShoppingBag = create(
   persist(
     (set) => ({
       count: 0,
       products: [],
+      isOpen: false,
       addProduct: (stripePriceId: string) =>
         set((state: { products: string[]; count: number }) => ({
           products: [...state.products, stripePriceId],

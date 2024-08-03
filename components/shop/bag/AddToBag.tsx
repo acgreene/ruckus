@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { useBagStore } from "@/zustand";
+import { ShoppingBag } from "@/zustand";
 
 interface AddToBagProps {
   stripePriceId: string;
 }
 
 const AddToBag: React.FC<AddToBagProps> = ({ stripePriceId }) => {
-  const addToBag = useBagStore((state: any) => state.addProduct);
+  const addToBag = ShoppingBag((state: any) => state.addProduct);
 
   const handleAddToBag = () => {
     addToBag(stripePriceId);

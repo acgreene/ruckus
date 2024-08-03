@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { useBagStore } from "@/zustand";
+import { ShoppingBag } from "@/zustand";
 
 interface ClearBagProps {
   // Define your prop types here
 }
 
 const ClearBag: React.FC<ClearBagProps> = ({}) => {
-  const clearBag = useBagStore((state: any) => state.clear);
+  const clearBag = ShoppingBag((state: any) => state.clear);
   return <button onClick={clearBag}>Clear bag</button>;
 };
 

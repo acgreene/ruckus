@@ -5,8 +5,6 @@ import PhotoIanEli from "@/components/photos/PhotoIanEli";
 import PhotoAdam from "@/components/photos/PhotoAdam";
 import PhotoSteph from "@/components/photos/PhotoSteph";
 import PhotoHorns from "@/components/photos/PhotoHorns";
-import Link from "next/link";
-import { spotify } from "@/constants/socialLinks";
 import { blockFont } from "@/fonts";
 
 interface HeroProps {
@@ -35,9 +33,9 @@ const Hero: React.FC<HeroProps> = ({}) => {
     };
   }, []);
   return (
-    <div className="h-screen w-full flex justify-center items-center">
+    <div className="h-screen w-full flex justify-center items-center relative">
       <div
-        className={`${blockFont.className} w-full h-full flex top-[48%] absolute rotate-[-3deg] scale-125 z-20`}
+        className={`${blockFont.className} w-full h-full flex top-[34%] absolute rotate-[-3deg] scale-125 z-20`}
       >
         <Marquee
           element={
@@ -52,7 +50,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         />
       </div>
       <div
-        className={`${blockFont.className} w-full h-full flex top-[49%] absolute rotate-[-3deg] scale-125 z-20`}
+        className={`${blockFont.className} w-full h-full flex top-[35%] absolute rotate-[-3deg] scale-125 z-20`}
       >
         <Marquee
           element={
@@ -67,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         />
       </div>
       <div
-        className={`${blockFont.className} w-full h-full flex top-[50%] absolute rotate-[-3deg] scale-125 z-20`}
+        className={`${blockFont.className} w-full h-full flex top-[36%] absolute rotate-[-3deg] scale-125 z-20`}
       >
         <Marquee
           element={
@@ -82,40 +80,66 @@ const Hero: React.FC<HeroProps> = ({}) => {
         />
       </div>
 
-      <div className="h-[300px] sm:h-[380px] overflow-clip w-full flex relative">
+      <div className="absolute top-[5%] h-[300px] sm:h-[380px] overflow-clip w-full flex">
         <PhotoHorns />
         <PhotoSteph />
         <PhotoIanEli />
         <PhotoAdam />
       </div>
 
-      <div className="absolute top-[60%] left-[5%] z-30">
-        <Link href="/shows">
-          <div className="border-2 border-ruckus-yellow bg-black bg-opacity-60 rounded-xl p-1">
-            <span className="uppercase font-extrabold text-white text-xs xs:text-sm sm:text-3xl">
-              Show Dates
-            </span>
-          </div>
-        </Link>
-      </div>
-      <div className="absolute top-[60%] left-[50%] -translate-x-1/2 z-30">
-        <a href={spotify.href} target="_blank">
-          <div className="border-2 border-ruckus-purple bg-black bg-opacity-60 rounded-xl p-1">
-            <span className="uppercase font-extrabold text-white text-xs xs:text-sm sm:text-3xl">
-              Stream
-            </span>
-          </div>
-        </a>
-      </div>
-      <div className="absolute top-[60%] right-[5%] z-30">
-        <Link href="/shop">
-          <div className="border-2 border-ruckus-blue bg-black bg-opacity-60 rounded-xl p-1 px-[27px] xs:px-[30px]">
-            <span className="uppercase font-extrabold text-white text-xs xs:text-sm sm:text-3xl">
-              Shop
-            </span>
-          </div>
-        </Link>
-      </div>
+      {/*<div className="w-full absolute top-[40%] left-[50%] -translate-x-1/2 flex flex-col z-30 bg-black bg-opacity-75">*/}
+      {/*  <div className="z-30 w-full flex justify-start">*/}
+      {/*    <Link href="/shows">*/}
+      {/*      <div className="p-1 w-fit">*/}
+      {/*        <span*/}
+      {/*          className={`${blockFont.className} uppercase text-white text-3xl xs:text-sm sm:text-3xl`}*/}
+      {/*        >*/}
+      {/*          Show Dates*/}
+      {/*        </span>*/}
+      {/*      </div>*/}
+      {/*    </Link>*/}
+      {/*  </div>*/}
+      {/*  <div className="z-30 w-full flex justify-start">*/}
+      {/*    <Link href={spotify.href}>*/}
+      {/*      <div className="p-1 w-fit">*/}
+      {/*        <span*/}
+      {/*          className={`${blockFont.className} uppercase text-white text-3xl xs:text-sm sm:text-3xl`}*/}
+      {/*        >*/}
+      {/*          Stream*/}
+      {/*        </span>*/}
+      {/*      </div>*/}
+      {/*    </Link>*/}
+      {/*  </div>*/}
+      {/*  <div className="z-30 w-full flex justify-start">*/}
+      {/*    <Link href="/shop">*/}
+      {/*      <div className="p-1 w-fit">*/}
+      {/*        <span*/}
+      {/*          className={`${blockFont.className} uppercase text-white text-3xl xs:text-sm sm:text-3xl`}*/}
+      {/*        >*/}
+      {/*          Shop*/}
+      {/*        </span>*/}
+      {/*      </div>*/}
+      {/*    </Link>*/}
+      {/*  </div>*/}
+      {/*  /!*<div className="">*!/*/}
+      {/*  /!*  <a href={spotify.href} target="_blank">*!/*/}
+      {/*  /!*    <div className="border-2 border-ruckus-purple bg-black bg-opacity-60 rounded-xl p-1">*!/*/}
+      {/*  /!*      <span className="uppercase font-extrabold text-white text-xs xs:text-sm sm:text-3xl">*!/*/}
+      {/*  /!*        Stream*!/*/}
+      {/*  /!*      </span>*!/*/}
+      {/*  /!*    </div>*!/*/}
+      {/*  /!*  </a>*!/*/}
+      {/*  /!*</div>*!/*/}
+      {/*  /!*<div className="">*!/*/}
+      {/*  /!*  <Link href="/shop">*!/*/}
+      {/*  /!*    <div className="border-2 border-ruckus-blue bg-black bg-opacity-60 rounded-xl p-1 px-[27px] xs:px-[30px]">*!/*/}
+      {/*  /!*      <span className="uppercase font-extrabold text-white text-xs xs:text-sm sm:text-3xl">*!/*/}
+      {/*  /!*        Shop*!/*/}
+      {/*  /!*      </span>*!/*/}
+      {/*  /!*    </div>*!/*/}
+      {/*  /!*  </Link>*!/*/}
+      {/*  /!*</div>*!/*/}
+      {/*</div>*/}
     </div>
   );
 };

@@ -24,7 +24,9 @@ const Menu: React.FC<MenuProps> = ({}) => {
         onClick={() => setToggle(!toggle)}
       >
         <button className="flex justify-center items-center">
-          <span className="text-center">{toggle ? "Close" : "Menu"}</span>
+          <span className="text-center text-xl">
+            {toggle ? "Close" : "Menu"}
+          </span>
         </button>
       </div>
       {/* toggled open menu */}

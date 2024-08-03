@@ -4,10 +4,12 @@ import ShopFooter from "@/components/shop/ShopFooter";
 
 export default function ShopLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="h-[400px] overflow-clip">
+    <div className="">
       <ShopHeader />
-      {children}
-      <ShopFooter />
+      <div className="px-4 w-full">
+        {children}
+        <ShopFooter />
+      </div>
     </div>
   );
 }

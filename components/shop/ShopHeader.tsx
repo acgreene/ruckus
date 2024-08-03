@@ -27,9 +27,9 @@ const ShopHeader: React.FC<ShopHeaderProps> = ({}) => {
   }
 
   return (
-    <div className="w-full flex flex-col justify-end items-center">
+    <div className="w-full flex flex-row justify-end items-center px-4 fixed">
       <button onClick={handleNavigationToBag}>
-        <span>Bag ({count})</span>
+        <span className="text-2xl">Bag ({count})</span>
       </button>
     </div>
   );

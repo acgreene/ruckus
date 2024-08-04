@@ -10,6 +10,7 @@ import { getStripePrice, getStripeProduct } from "@/functions/stripe";
 import { formatToUrlSlug } from "@/functions";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { Loading } from "@/components/common/Loading";
+import { useRouter } from "next/navigation";
 
 interface BagProps {
   // Define your prop types here
@@ -36,6 +37,7 @@ const Bag: React.FC<BagProps> = ({}) => {
   const [fromPath, setFromPath] = useState<any>("");
   const [bagItems, setBagItems] = useState<BagItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
 
   async function handleProductFetch(): Promise<any> {
     const newBagItems: BagItem[] = [];
@@ -103,6 +105,32 @@ const Bag: React.FC<BagProps> = ({}) => {
       subtotal += bagItems[i].unitAmount * bagItems[i].quantity;
     }
     return subtotal / 100;
+  }
+
+  const router = useRouter();
+
+  async function postCheckoutSession() {
+    setCheckoutLoading(true);
+
+    const postedBagItems = [];
+    for (let i = 0; i < bagItems.length; i++) {
+      postedBagItems.push({
+        priceId: bagItems[i].priceId,
+        quantity: bagItems[i].quantity,
+      });
+    }
+
+    const res = await fetch("/api/stripe/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ bagItems: postedBagItems }),
+    });
+
+    const stripeSessionUrl = await res.json();
+
+    router.push(stripeSessionUrl as string);
   }
 
   useEffect(() => {
@@ -204,8 +232,15 @@ const Bag: React.FC<BagProps> = ({}) => {
               </span>
             </div>
             <div>
-              <button className="text-white bg-black rounded-full px-14 py-4">
-                <span className="text-3xl">Checkout</span>
+              <button
+                onClick={postCheckoutSession}
+                className={`${checkoutLoading ? "bg-green-500" : "bg-black"} text-white transition duration-300 ease-in-out rounded-full px-14 py-4`}
+              >
+                {checkoutLoading ? (
+                  <Loading />
+                ) : (
+                  <span className="text-3xl">Checkout</span>
+                )}
               </button>
             </div>
           </div>

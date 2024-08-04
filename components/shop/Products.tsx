@@ -25,7 +25,9 @@ const Products: React.FC<ProductsProps> = ({}) => {
       {isLoaded ? (
         <div className="flex flex-col space-y-20">
           {products.map((product: any, index: number) => (
-            <Product product={product} key={index} />
+            <div className={`${product.active ? "block" : "hidden"}`}>
+              <Product product={product} key={index} />
+            </div>
           ))}
         </div>
       ) : (

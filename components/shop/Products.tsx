@@ -15,7 +15,7 @@ const Products: React.FC<ProductsProps> = ({}) => {
 
   useEffect(() => {
     getStripeProducts().then((p) => {
-      setProducts(p?.data);
+      setProducts(p);
       setIsLoaded(true);
     });
   }, []);

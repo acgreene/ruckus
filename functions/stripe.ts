@@ -25,7 +25,8 @@ export async function getStripeProducts(): Promise<any> {
     },
   });
 
-  return await response.json();
+  const { data } = await response.json();
+  return data.filter((item: any) => item.active);
 }
 
 /**

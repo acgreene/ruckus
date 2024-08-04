@@ -73,7 +73,10 @@ const Menu: React.FC<MenuProps> = ({}) => {
               </div>
             </div>
             <div className="w-1/2 h-full flex justify-center items-center p-1">
-              <EmailSubscribe />
+              <EmailSubscribe
+                message="Get notified about our shows!"
+                feature={false}
+              />
             </div>
           </div>
         </div>

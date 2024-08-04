@@ -5,9 +5,11 @@ import { getStripePrice } from "@/functions/stripe";
 
 interface ProductProps {
   product: any;
+  hideName?: boolean;
+  hidePrice?: boolean;
 }
 
-const Product: React.FC<ProductProps> = ({ product }) => {
+const Product: React.FC<ProductProps> = ({ product, hideName, hidePrice }) => {
   const [price, setPrice] = useState<any>(null);
 
   useEffect(() => {
@@ -27,8 +29,8 @@ const Product: React.FC<ProductProps> = ({ product }) => {
           />
         </div>
         <div className="text-2xl flex flex-col">
-          <span>{product?.name}</span>
-          <span>${price?.unit_amount / 100} USD</span>
+          {hideName ? <></> : <span>{product?.name}</span>}
+          {hidePrice ? <></> : <span>${price?.unit_amount / 100} USD</span>}
         </div>
       </div>
     </Link>

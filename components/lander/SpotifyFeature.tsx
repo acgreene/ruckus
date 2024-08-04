@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { blockFont } from "@/fonts";
 import DynamicMarquee from "@/components/common/DynamicMarquee";
 
@@ -15,13 +15,34 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
   link,
   title,
 }) => {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const updateWindowWidth = () => {
+      if (typeof window !== "undefined") {
+        setWindowWidth(window.innerWidth);
+      }
+    };
+
+    // Set speed on mount
+    updateWindowWidth();
+
+    // Update speed on resize
+    window.addEventListener("resize", updateWindowWidth);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener("resize", updateWindowWidth);
+    };
+  }, []);
+
   return (
     <div className="w-full h-screen justify-start items-center flex flex-col space-y-2 z-[50] relative">
       <a href={link} target="_blank" className="relative">
         <div className="relative w-full items-center flex flex-row justify-center z-[51]">
           <DynamicMarquee
             currentTranslation={0}
-            speed={window.innerWidth < 768 ? 0.2 : 0.1}
+            speed={windowWidth < 768 ? 0.2 : 0.1}
             color=""
             content={
               <div className="px-2 space-x-2 sm:space-x-8 flex">
@@ -40,7 +61,7 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
           />
           <DynamicMarquee
             currentTranslation={-100}
-            speed={window.innerWidth < 768 ? 0.2 : 0.1}
+            speed={windowWidth < 768 ? 0.2 : 0.1}
             color=""
             content={
               <div className="px-2 space-x-2 sm:space-x-8 flex">
@@ -68,7 +89,7 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
         <div className="relative w-full items-center flex flex-row justify-center z-[51]">
           <DynamicMarquee
             currentTranslation={100}
-            speed={window.innerWidth < 768 ? -0.2 : -0.1}
+            speed={windowWidth < 768 ? -0.2 : -0.1}
             color=""
             content={
               <div className="px-2 space-x-2 sm:space-x-8 flex">
@@ -82,7 +103,7 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
           />
           <DynamicMarquee
             currentTranslation={0}
-            speed={window.innerWidth < 768 ? -0.2 : -0.1}
+            speed={windowWidth < 768 ? -0.2 : -0.1}
             color=""
             content={
               <div className="px-2 space-x-2 sm:space-x-8 flex">

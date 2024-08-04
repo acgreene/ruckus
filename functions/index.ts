@@ -31,3 +31,7 @@ export function isValidEmail(email: string): boolean {
 export function isValidPhoneNumber(phone: string): boolean {
   return validator.isMobilePhone(phone);
 }
+
+export function formatToUrlSlug(title: string): string {
+  return title.toLowerCase().replace(/\s+/g, "-");
+}

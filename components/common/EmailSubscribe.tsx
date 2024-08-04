@@ -24,7 +24,6 @@ const EmailSubscribe: React.FC<EmailSubscribeProps> = ({}) => {
     if (isValid) {
       setError(null);
       setSubscribed(true);
-      console.log(email);
 
       //   TODO: post email to DB and loops
     } else {

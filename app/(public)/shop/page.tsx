@@ -1,5 +1,6 @@
 import React from "react";
 import { featureFont } from "@/fonts";
+import Products from "@/components/shop/Products";
 
 interface PageProps {
   // Define your prop types here
@@ -21,7 +22,7 @@ const Page: React.FC<PageProps> = ({}) => {
 
       <div className="flex flex-col space-y-8 text-2xl py-12">
         <div className="flex flex-col">
-          <span>Ships worldwide</span>
+          <span>Ships in U.S.</span>
           <span>Open 24/7</span>
         </div>
 
@@ -30,6 +31,8 @@ const Page: React.FC<PageProps> = ({}) => {
           <span>Summer 2024</span>
         </div>
       </div>
+
+      <Products />
     </div>
   );
 };

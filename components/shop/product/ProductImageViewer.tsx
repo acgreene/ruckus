@@ -7,45 +7,32 @@ interface ProductImageViewerProps {
 
 const ProductImageViewer: React.FC<ProductImageViewerProps> = ({ images }) => {
   const [position, setPosition] = useState(0);
-  const [isFadeOut, setIsFadeOut] = useState(false);
-  const [isFadeIn, setIsFadeIn] = useState(false);
 
   function handleSetPosition(increment: boolean) {
-    setIsFadeOut(true);
-    setTimeout(() => {
-      setPosition((prev) => {
-        let newPosition = increment ? prev + 1 : prev - 1;
+    setPosition((prev) => {
+      let newPosition = increment ? prev + 1 : prev - 1;
 
-        if (newPosition >= images.length) {
-          newPosition = 0;
-        } else if (newPosition < 0) {
-          newPosition = images.length - 1;
-        }
-        setIsFadeOut(false);
+      if (newPosition >= images.length) {
+        newPosition = 0;
+      } else if (newPosition < 0) {
+        newPosition = images.length - 1;
+      }
 
-        return newPosition;
-      });
-    }, 250);
+      return newPosition;
+    });
   }
 
   return (
     <div>
-      {/*{images.map((image, index) => (*/}
-      {/*  <div key={index}>*/}
-      {/*    <img src={image} alt="" />*/}
-      {/*  </div>*/}
-      {/*))}*/}
-
       <div className="relative">
-        <div
-          className={`flex h-[300px] ${isFadeOut ? "opacity-0" : "opacity-100"} transition-opacity duration-[250ms] ease-in-out`}
-        >
+        <div className={`flex h-[300px]`}>
           <img
             src={images[position]}
             alt=""
             className="h-full w-full object-cover"
           />
         </div>
+
         <div
           onClick={() => handleSetPosition(false)}
           className="absolute h-full w-1/2 top-0 left-0"

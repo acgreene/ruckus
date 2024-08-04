@@ -43,3 +43,17 @@ export async function getStripePrice(priceId: string): Promise<any> {
 
   return await response.json();
 }
+
+/**
+ * Fetches all the prices associated with a productId.
+ */
+export async function getAllStripePrices(productId: string): Promise<any> {
+  const response = await fetch(`/api/stripe/prices?product_id=${productId}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  return await response.json();
+}

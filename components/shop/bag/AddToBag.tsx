@@ -14,7 +14,14 @@ const AddToBag: React.FC<AddToBagProps> = ({ stripePriceId }) => {
     addToBag(stripePriceId);
   };
 
-  return <button onClick={handleAddToBag}>Add to bag</button>;
+  return (
+    <button
+      onClick={handleAddToBag}
+      className="bg-white text-black rounded-full px-14 py-4"
+    >
+      <span>Add to bag</span>
+    </button>
+  );
 };
 
 export default AddToBag;

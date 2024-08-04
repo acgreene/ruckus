@@ -4,7 +4,7 @@ import { getYouAlone } from "@/constants/songLinks";
 
 export default function Home() {
   return (
-    <div className="w-screen overflow-clip relative px-4">
+    <div className="w-screen overflow-x-clip relative px-4">
       <Hero />
       <SpotifyFeature
         title={getYouAlone.name}

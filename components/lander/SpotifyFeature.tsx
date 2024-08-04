@@ -2,7 +2,7 @@
 
 import React from "react";
 import { blockFont } from "@/fonts";
-import { useScrollPosition } from "@/hooks";
+import DynamicMarquee from "@/components/common/DynamicMarquee";
 
 interface SpotifyFeatureProps {
   img_fp: string;
@@ -15,42 +15,90 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
   link,
   title,
 }) => {
-  const scrollPosition = useScrollPosition();
-
   return (
     <div className="w-full h-screen justify-start items-center flex flex-col space-y-2 z-[50] relative">
       <a href={link} target="_blank" className="relative">
-        <div
+        {/*<div
           className="flex w-full flex-row space-x-4 justify-start items-center z-[51] relative"
           style={{
-            transform: `translate(${scrollPosition / 300}px, ${scrollPosition / 10}px)`,
+            transform: `translateX(${scrollPosition / 30}px)`,
           }}
         >
           <span className={`${blockFont.className} uppercase text-3xl`}>
             Stream
           </span>
+        </div>*/}
+
+        <div className="relative w-full items-center flex flex-row justify-center z-[51]">
+          <DynamicMarquee
+            currentTranslation={0}
+            speed={0.1}
+            color=""
+            content={
+              <div className="px-2 space-x-2">
+                <span className={`${blockFont.className} uppercase text-3xl`}>
+                  Stream
+                </span>
+                <span className={`${blockFont.className} uppercase text-3xl`}>
+                  Stream
+                </span>
+              </div>
+            }
+          />
+          <DynamicMarquee
+            currentTranslation={-100}
+            speed={0.1}
+            color=""
+            content={
+              <div className="px-2 space-x-2">
+                <span className={`${blockFont.className} uppercase text-3xl`}>
+                  Stream
+                </span>
+                <span className={`${blockFont.className} uppercase text-3xl`}>
+                  Stream
+                </span>
+              </div>
+            }
+          />
         </div>
 
-        <div
-          className="flex w-full relative"
-          style={{
-            transform: `translate(-${scrollPosition / 200}px, ${scrollPosition / 40}px)`,
-          }}
-        >
+        <div className="flex w-full relative">
           <img src={img_fp} alt="" className="h-full w-full object-contain" />
         </div>
 
-        <div
-          className="flex w-full justify-end items-center z-[51] relative"
-          style={{
-            transform: `translate(-${scrollPosition / 300}px, -${scrollPosition / 15}px)`,
-          }}
-        >
+        {/*<div className="flex w-full justify-end items-center z-[51] relative">
           <span
             className={`${blockFont.className} uppercase text-3xl w-2/3 text-end`}
           >
             {title}
           </span>
+        </div>*/}
+
+        <div className="relative w-full items-center flex flex-row justify-center z-[51]">
+          <DynamicMarquee
+            currentTranslation={100}
+            speed={-0.1}
+            color=""
+            content={
+              <div className="px-2 space-x-2">
+                <span className={`${blockFont.className} uppercase text-3xl`}>
+                  Get You Alone
+                </span>
+              </div>
+            }
+          />
+          <DynamicMarquee
+            currentTranslation={0}
+            speed={-0.1}
+            color=""
+            content={
+              <div className="px-2 space-x-2">
+                <span className={`${blockFont.className} uppercase text-3xl`}>
+                  Get You Alone
+                </span>
+              </div>
+            }
+          />
         </div>
       </a>
     </div>

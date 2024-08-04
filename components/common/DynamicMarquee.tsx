@@ -1,0 +1,179 @@
+"use client";
+
+import React, { useEffect, useRef } from "react";
+
+interface DynamicMarqueeProps {
+  currentTranslation: number;
+  speed: number;
+  color: string;
+  content: React.ReactNode;
+}
+
+const DynamicMarquee: React.FC<DynamicMarqueeProps> = ({
+  currentTranslation,
+  speed,
+  color,
+  content,
+}) => {
+  class LoopingElement {
+    element: HTMLElement;
+    currentTranslation: number;
+    speed: number;
+    direction: boolean;
+    scrollTop: number;
+    metric: number;
+    lerp: {
+      current: number;
+      target: number;
+      factor: number;
+    };
+    maxScrollY: number;
+    scrollPos: number;
+    lastScrollTime: number;
+    lastScrollPos: number;
+    scrollVel: number;
+
+    constructor(
+      element: HTMLElement,
+      currentTranslation: number,
+      speed: number,
+    ) {
+      this.element = element;
+      this.currentTranslation = currentTranslation;
+      this.speed = speed;
+      this.direction = true;
+      this.scrollTop = 0;
+      this.metric = 100;
+
+      this.maxScrollY = 0;
+      this.scrollPos = 0;
+      this.lastScrollTime = 0;
+      this.lastScrollPos = 0;
+      this.scrollVel = 0;
+
+      this.lerp = {
+        current: this.currentTranslation,
+        target: this.currentTranslation,
+        factor: 0.2,
+      };
+
+      this.events();
+      this.render();
+    }
+
+    // Sets the direction of the looping element on scroll
+    events = () => {
+      window.addEventListener("scroll", () => {
+        this.maxScrollY = document.body.scrollHeight - window.innerHeight;
+
+        this.scrollPos = window.scrollY;
+        const currScrollTime: number = Date.now();
+
+        const deltaTime = currScrollTime - this.lastScrollTime;
+        const deltaPos = this.scrollPos - this.lastScrollPos;
+        this.scrollVel = deltaPos / deltaTime;
+
+        this.lastScrollTime = Date.now();
+        this.lastScrollPos = window.scrollY;
+
+        // ui error handling
+        if (window.scrollY === 0 || window.scrollY > this.maxScrollY - 100) {
+          this.scrollVel = 0;
+        }
+
+        const direction = window.scrollY;
+        if (direction > this.scrollTop) {
+          this.direction = true;
+          this.lerp.target += this.speed * Math.abs(this.scrollVel * 5);
+        } else {
+          this.direction = false;
+          this.lerp.target -= this.speed * Math.abs(this.scrollVel * 5);
+        }
+        this.scrollTop = direction;
+      });
+    };
+
+    lerpFunc = (current: number, target: number, factor: number) => {
+      this.lerp.current = current * (1 - factor) + target * factor;
+    };
+
+    goForward = () => {
+      this.lerp.target += this.speed;
+      this.element.style.display = "flex";
+      if (this.speed > 0) {
+        if (this.lerp.target > this.metric) {
+          this.lerp.current -= this.metric * 2;
+          this.lerp.target -= this.metric * 2;
+          this.element.style.display = "none";
+        }
+      } else {
+        if (this.lerp.target < -1 * this.metric) {
+          this.lerp.current += this.metric * 2;
+          this.lerp.target += this.metric * 2;
+          this.element.style.display = "none";
+        }
+      }
+    };
+
+    goBackward = () => {
+      this.lerp.target -= this.speed;
+      this.element.style.display = "flex";
+      if (this.speed > 0) {
+        if (this.lerp.target < -1 * this.metric) {
+          this.lerp.current += this.metric * 2;
+          this.lerp.target += this.metric * 2;
+          this.element.style.display = "none";
+        }
+      } else {
+        if (this.lerp.target > this.metric) {
+          this.lerp.current -= this.metric * 2;
+          this.lerp.target -= this.metric * 2;
+          this.element.style.display = "none";
+        }
+      }
+    };
+
+    animate = () => {
+      // initialized to true, then set on scroll
+      this.direction ? this.goForward() : this.goBackward();
+      this.lerpFunc(this.lerp.current, this.lerp.target, this.lerp.factor);
+
+      // skew(${this.scrollVel * 15}deg)
+      if (this.element) {
+        this.element.style.transform = `translateX(${-this.lerp.current}%)`;
+      }
+    };
+
+    render = () => {
+      this.animate();
+      window.requestAnimationFrame(this.render);
+    };
+  }
+
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (elementRef.current) {
+      const loopingElement = new LoopingElement(
+        elementRef.current,
+        currentTranslation,
+        speed,
+      );
+    }
+  }, []);
+
+  return (
+    <div
+      ref={elementRef}
+      className="text-2xl tracking-wider flex flex-row whitespace-nowrap absolute ease-linear duration-[100ms] lg:text-[172px]"
+    >
+      <div
+        className={`${color} shrink-0 w-full flex flex-col justify-center items-center`}
+      >
+        {content}
+      </div>
+    </div>
+  );
+};
+
+export default DynamicMarquee;

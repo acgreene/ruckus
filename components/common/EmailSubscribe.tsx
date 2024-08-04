@@ -16,7 +16,7 @@ const EmailSubscribe: React.FC<EmailSubscribeProps> = ({}) => {
   };
 
   // Function to handle form submission
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const isValid = isValidEmail(email);
@@ -25,7 +25,15 @@ const EmailSubscribe: React.FC<EmailSubscribeProps> = ({}) => {
       setError(null);
       setSubscribed(true);
 
-      //   TODO: post email to DB and loops
+      await fetch("/api/loops/create-contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+        }),
+      });
     } else {
       setError("Invalid email address");
     }

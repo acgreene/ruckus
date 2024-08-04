@@ -144,7 +144,7 @@ const Bag: React.FC<BagProps> = ({}) => {
 
   return (
     <div
-      className={`absolute flex flex-col justify-start items-center bg-white text-black pt-20 px-4 top-0 left-0 w-screen min-h-screen z-50`}
+      className={`absolute flex flex-col justify-start items-center bg-white text-black pt-20 px-4 pb-8 top-0 left-0 w-screen min-h-screen z-50`}
     >
       <Link href={fromPath as string}>
         <div className="text-2xl absolute right-6 top-6 flex flex-col justify-center items-end font-medium">

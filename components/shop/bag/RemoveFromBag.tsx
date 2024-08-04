@@ -8,14 +8,14 @@ interface RemoveFromBagProps {
 }
 
 const RemoveFromBag: React.FC<RemoveFromBagProps> = ({ stripePriceId }) => {
-  const removeFromBag = ShoppingBag((state: any) => state.removeProduct);
+  const removeFromBag = ShoppingBag((state: any) => state.removeAllProduct);
 
   const handleRemoveFromBag = () => {
     removeFromBag(stripePriceId);
   };
   return (
     <button onClick={handleRemoveFromBag}>
-      <span>Delete</span>
+      <span className="text-xl">Delete</span>
     </button>
   );
 };

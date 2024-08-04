@@ -93,9 +93,9 @@ export default function ProductPage({
   } else {
     if (productExists) {
       return (
-        <div className="flex flex-col space-y-2 pt-12 pb-64">
+        <div className="flex flex-col space-y-2 pt-12 pb-64 sm:items-center">
           <ProductImageViewer images={images} />
-          <div className="flex flex-col w-full text-2xl space-y-10">
+          <div className="flex flex-col w-full sm:w-[500px] md:w-[750px] text-2xl sm:text-4xl space-y-10">
             <div className="flex flex-row w-full justify-between items-center">
               <span>{stripeProduct.name}</span>
               {stripePrice.map((price: any, index: any) => (
@@ -109,14 +109,14 @@ export default function ProductPage({
             </div>
 
             {/* size variant toggle */}
-            <div className="flex text-base space-x-1">
+            <div className="flex text-base sm:text-2xl space-x-1">
               <>
                 {stripePrice[0].metadata.size ? (
                   <>
                     {stripePrice.map((price: any, index: number) => (
                       <div
                         key={index}
-                        className={`${priceVariant === price.id ? "bg-white text-black" : "bg-black text-white"} border rounded-full cursor-pointer p-1 h-6 w-6 flex justify-center items-center`}
+                        className={`${priceVariant === price.id ? "bg-white text-black" : "bg-black text-white"} border rounded-full cursor-pointer p-1 h-6 w-6 sm:h-12 sm:w-12 flex justify-center items-center`}
                         onClick={() => setPriceVariant(price.id)}
                       >
                         <span>{price.metadata.size}</span>
@@ -134,7 +134,9 @@ export default function ProductPage({
             </div>
 
             <div>
-              <span className="text-base">{stripeProduct.description}</span>
+              <span className="text-base sm:text-2xl">
+                {stripeProduct.description}
+              </span>
             </div>
           </div>
         </div>

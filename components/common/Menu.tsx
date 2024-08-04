@@ -55,7 +55,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
                   className={`w-full  h-full justify-center items-center flex`}
                 >
                   <span
-                    className={`${blockFont.className} text-xl uppercase xs:text-5xl sm:text-7xl md:text-8xl hover:text-ruckus-yellow transition-all duration-300`}
+                    className={`${blockFont.className} text-xl uppercase xs:text-4xl sm:text-6xl md:text-7xl hover:text-ruckus-yellow transition-all duration-300`}
                   >
                     {link.name}
                   </span>
@@ -66,7 +66,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
           <div className="w-full h-1/4 flex flex-row">
             <div className="flex w-1/2 h-full justify-center items-center">
               <div className="hidden md:flex">
-                <Socials size={6} />
+                <Socials size={4} />
               </div>
               <div className="flex md:hidden">
                 <Socials size={1} />

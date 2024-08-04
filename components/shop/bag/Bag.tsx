@@ -147,7 +147,7 @@ const Bag: React.FC<BagProps> = ({}) => {
       className={`absolute flex flex-col justify-start items-center bg-white text-black pt-20 px-4 pb-8 top-0 left-0 w-screen min-h-screen z-50`}
     >
       <Link href={fromPath as string}>
-        <div className="text-2xl absolute right-6 top-6 flex flex-col justify-center items-end font-medium">
+        <div className="text-2xl sm:text-4xl absolute right-6 top-6 flex flex-col justify-center items-end font-medium">
           <span>Close</span>
           <RiCloseLargeLine />
         </div>
@@ -155,7 +155,7 @@ const Bag: React.FC<BagProps> = ({}) => {
 
       {isLoaded ? (
         <>
-          <div className="w-full space-y-4 pt-6">
+          <div className="w-full space-y-4 sm:space-y-12 pt-6">
             {bagItems.length > 0 ? (
               <>
                 {bagItems.map((item, index) => (
@@ -164,14 +164,14 @@ const Bag: React.FC<BagProps> = ({}) => {
                     className="flex flex-col w-full border-b-2 border-black pb-4"
                   >
                     <div className="flex flex-row w-full justify-between items-center">
-                      <span className="text-2xl">{item.name}</span>
+                      <span className="text-2xl sm:text-4xl">{item.name}</span>
                       <div onClick={() => handleDelete(item.priceId)}>
                         <RemoveFromBag stripePriceId={item.priceId} />
                       </div>
                     </div>
                     <div className="flex flex-row w-full justify-between items-center">
                       <div className="flex flex-row space-x-2">
-                        <div className="flex h-[80px]">
+                        <div className="flex h-[80px] sm:h-[200px]">
                           <img
                             src={item.img_src}
                             alt=""
@@ -179,13 +179,15 @@ const Bag: React.FC<BagProps> = ({}) => {
                           />
                         </div>
                         {item.variant ? (
-                          <span className="text-2xl">{item.variant}</span>
+                          <span className="text-2xl sm:text-4xl">
+                            {item.variant}
+                          </span>
                         ) : (
                           <></>
                         )}
                       </div>
                       <div className="flex flex-col space-y-2">
-                        <div className="flex flex-row text-2xl justify-center items-center space-x-3">
+                        <div className="flex flex-row text-2xl sm:text-4xl justify-center items-center space-x-3">
                           <span className="">{item.quantity}</span>
                           <div className="flex items-center space-x-1">
                             <button
@@ -205,7 +207,7 @@ const Bag: React.FC<BagProps> = ({}) => {
                           </div>
                         </div>
                         <div>
-                          <span className="text-xl">
+                          <span className="text-xl sm:text-3xl">
                             ${(item.unitAmount * item.quantity) / 100} USD
                           </span>
                         </div>
@@ -216,18 +218,20 @@ const Bag: React.FC<BagProps> = ({}) => {
               </>
             ) : (
               <div className="w-full flex justify-center items-center pt-8 pb-40">
-                <span className="text-3xl">The bag is empty</span>
+                <span className="text-3xl sm:text-5xl">The bag is empty</span>
               </div>
             )}
           </div>
 
           <div className="flex flex-col space-y-4 justify-center items-center w-full">
             <div className="flex flex-row justify-between items-center w-full">
-              <span className="text-2xl">Subtotal</span>
-              <span className="text-2xl">${calcSubtotal()} USD</span>
+              <span className="text-2xl sm:text-4xl">Subtotal</span>
+              <span className="text-2xl sm:text-4xl">
+                ${calcSubtotal()} USD
+              </span>
             </div>
             <div className="flex justify-start items-center">
-              <span className="text-base">
+              <span className="text-base sm:text-xl">
                 Taxes and shipping will be calculated at checkout
               </span>
             </div>
@@ -239,7 +243,7 @@ const Bag: React.FC<BagProps> = ({}) => {
                 {checkoutLoading ? (
                   <Loading />
                 ) : (
-                  <span className="text-3xl">Checkout</span>
+                  <span className="text-3xl sm:text-5xl">Checkout</span>
                 )}
               </button>
             </div>

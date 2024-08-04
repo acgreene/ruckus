@@ -15,14 +15,16 @@ export default function Home() {
         link={getYouAlone.link}
       />
 
-      <div className="flex flex-col space-y-2">
-        <span className={`${blockFont.className} uppercase text-2xl`}>
+      <div className="flex flex-col space-y-2 sm:pt-64">
+        <span
+          className={`${blockFont.className} uppercase text-2xl sm:text-7xl`}
+        >
           Get Merch
         </span>
         <ProductCarousel />
       </div>
 
-      <div className="pb-36">
+      <div className="pb-36 sm:pt-36">
         <EmailSubscribe
           message="Get notified about our shows, new merch, and more!"
           feature={true}

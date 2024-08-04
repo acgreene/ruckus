@@ -21,14 +21,14 @@ const Product: React.FC<ProductProps> = ({ product, hideName, hidePrice }) => {
   return (
     <Link href={`/shop/${formatToUrlSlug(product?.name)}`}>
       <div>
-        <div className="flex h-[280px]">
+        <div className="flex h-[280px] xs:h-[400px] sm:w-[500px]">
           <img
             src={product?.images[0]}
             alt=""
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="text-2xl flex flex-col">
+        <div className="text-2xl flex flex-col sm:text-4xl">
           {hideName ? <></> : <span>{product?.name}</span>}
           {hidePrice ? <></> : <span>${price?.unit_amount / 100} USD</span>}
         </div>

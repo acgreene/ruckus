@@ -15,7 +15,7 @@ const RemoveFromBag: React.FC<RemoveFromBagProps> = ({ stripePriceId }) => {
   };
   return (
     <button onClick={handleRemoveFromBag}>
-      <span className="text-xl">Delete</span>
+      <span className="text-xl sm:text-3xl">Delete</span>
     </button>
   );
 };

@@ -25,7 +25,9 @@ const ProductImageViewer: React.FC<ProductImageViewerProps> = ({ images }) => {
   return (
     <div>
       <div className="relative">
-        <div className={`flex h-[300px]`}>
+        <div
+          className={`flex h-[300px] xs:h-[400px] sm:w-[500px] md:h-[600px] md:w-[600px] justify-center items-center`}
+        >
           <img
             src={images[position]}
             alt=""

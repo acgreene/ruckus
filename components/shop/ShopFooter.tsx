@@ -7,7 +7,7 @@ interface ShopFooterProps {
 
 const ShopFooter: React.FC<ShopFooterProps> = ({}) => {
   return (
-    <div>
+    <div className="sm:w-[500px] md:w-[750px]">
       <span className="text-2xl">
         Created by{" "}
         <span className={`${featureFont.className}`}>The Ruckus</span> team,

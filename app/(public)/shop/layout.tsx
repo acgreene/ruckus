@@ -8,7 +8,9 @@ export default function ShopLayout({ children }: { children: ReactNode }) {
       <ShopHeader />
       <div className="px-4 w-full">
         {children}
-        <ShopFooter />
+        <div className="w-full justify-center items-center flex pb-12">
+          <ShopFooter />
+        </div>
       </div>
     </div>
   );

@@ -54,7 +54,7 @@ const EmailSubscribe: React.FC<EmailSubscribeProps> = ({
       className={`flex flex-col ${feature ? "space-y-4" : "xs:space-y-1 md:space-y-2"} text-wrap h-full w-full items-center justify-center`}
     >
       <span
-        className={`${feature ? "text-xl" : "text-xs xs:text-base md:text-xl"} text-center text-ruckus-purple`}
+        className={`${feature ? "text-xl sm:text-4xl" : "text-xs xs:text-base md:text-xl"} text-center text-ruckus-purple`}
       >
         {subscribed ? "Thank you, we will be in touch soon!" : message}
       </span>
@@ -73,7 +73,7 @@ const EmailSubscribe: React.FC<EmailSubscribeProps> = ({
           className={`border md:border-4 rounded-xl xs:p-1 md:p-2 transition-all duration-300 ${subscribed ? "bg-green-500" : "bg-transparent"}`}
         >
           <span
-            className={`md:whitespace-nowrap ${feature ? "text-xl" : "text-xs xs:text-base md:text-xl"}`}
+            className={`md:whitespace-nowrap ${feature ? "text-xl sm:text-4xl" : "text-xs xs:text-base md:text-xl"}`}
           >
             {subscribed ? "Subscribed! :)" : "Subscribe"}
           </span>

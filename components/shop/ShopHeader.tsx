@@ -34,7 +34,7 @@ const ShopHeader: React.FC<ShopHeaderProps> = ({}) => {
     >
       {pathname !== "/shop" ? (
         <Link href="/shop">
-          <button className="flex flex-row items-center text-2xl space-x-2">
+          <button className="flex flex-row items-center text-2xl sm:text-4xl space-x-2">
             <FaArrowLeft />
             <span>Shop</span>
           </button>
@@ -44,7 +44,7 @@ const ShopHeader: React.FC<ShopHeaderProps> = ({}) => {
       )}
 
       <button onClick={handleNavigationToBag}>
-        <span className="text-2xl">Bag ({count})</span>
+        <span className="text-2xl sm:text-4xl">Bag ({count})</span>
       </button>
     </div>
   );

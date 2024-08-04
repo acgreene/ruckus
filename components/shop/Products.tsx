@@ -23,10 +23,13 @@ const Products: React.FC<ProductsProps> = ({}) => {
   return (
     <div>
       {isLoaded ? (
-        <div className="flex flex-col space-y-20">
+        <div className="flex flex-col space-y-20 sm:items-center">
           {products.map((product: any, index: number) => (
-            <div className={`${product.active ? "block" : "hidden"}`}>
-              <Product product={product} key={index} />
+            <div
+              key={index}
+              className={`${product.active ? "block" : "hidden"}`}
+            >
+              <Product product={product} />
             </div>
           ))}
         </div>

@@ -32,7 +32,7 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
         <div className="relative w-full items-center flex flex-row justify-center z-[51]">
           <DynamicMarquee
             currentTranslation={0}
-            speed={0.1}
+            speed={0.2}
             color=""
             content={
               <div className="px-2 space-x-2">
@@ -47,7 +47,7 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
           />
           <DynamicMarquee
             currentTranslation={-100}
-            speed={0.1}
+            speed={0.2}
             color=""
             content={
               <div className="px-2 space-x-2">
@@ -77,7 +77,7 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
         <div className="relative w-full items-center flex flex-row justify-center z-[51]">
           <DynamicMarquee
             currentTranslation={100}
-            speed={-0.1}
+            speed={-0.2}
             color=""
             content={
               <div className="px-2 space-x-2">
@@ -89,7 +89,7 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
           />
           <DynamicMarquee
             currentTranslation={0}
-            speed={-0.1}
+            speed={-0.2}
             color=""
             content={
               <div className="px-2 space-x-2">

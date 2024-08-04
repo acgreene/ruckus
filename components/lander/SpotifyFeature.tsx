@@ -34,7 +34,7 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
     return () => {
       window.removeEventListener("resize", updateWindowWidth);
     };
-  }, []);
+  }, [windowWidth]);
 
   return (
     <div className="w-full h-screen justify-start items-center flex flex-col space-y-2 z-[50] relative">
@@ -42,10 +42,15 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
         <div className="relative w-full items-center flex flex-row justify-center z-[51]">
           <DynamicMarquee
             currentTranslation={0}
-            speed={windowWidth < 768 ? 0.2 : 0.1}
+            speed={windowWidth < 768 ? 0.1 : 0.05}
             color=""
             content={
               <div className="px-2 space-x-2 sm:space-x-8 flex">
+                <span
+                  className={`${blockFont.className} uppercase text-3xl sm:text-7xl`}
+                >
+                  Stream
+                </span>
                 <span
                   className={`${blockFont.className} uppercase text-3xl sm:text-7xl`}
                 >
@@ -61,10 +66,15 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
           />
           <DynamicMarquee
             currentTranslation={-100}
-            speed={windowWidth < 768 ? 0.2 : 0.1}
+            speed={windowWidth < 768 ? 0.1 : 0.05}
             color=""
             content={
               <div className="px-2 space-x-2 sm:space-x-8 flex">
+                <span
+                  className={`${blockFont.className} uppercase text-3xl sm:text-7xl`}
+                >
+                  Stream
+                </span>
                 <span
                   className={`${blockFont.className} uppercase text-3xl sm:text-7xl`}
                 >
@@ -81,7 +91,7 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
         </div>
 
         <div className="flex w-full relative justify-center items-center">
-          <div className="flex w-full sm:w-3/4 relative">
+          <div className="flex w-full sm:w-2/3 md:w-1/2 relative">
             <img src={img_fp} alt="" className="h-full w-full object-contain" />
           </div>
         </div>
@@ -89,10 +99,15 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
         <div className="relative w-full items-center flex flex-row justify-center z-[51]">
           <DynamicMarquee
             currentTranslation={100}
-            speed={windowWidth < 768 ? -0.2 : -0.1}
+            speed={windowWidth < 768 ? -0.1 : -0.05}
             color=""
             content={
               <div className="px-2 space-x-2 sm:space-x-8 flex">
+                <span
+                  className={`${blockFont.className} uppercase text-3xl sm:text-7xl`}
+                >
+                  {title}
+                </span>
                 <span
                   className={`${blockFont.className} uppercase text-3xl sm:text-7xl`}
                 >
@@ -103,10 +118,15 @@ const SpotifyFeature: React.FC<SpotifyFeatureProps> = ({
           />
           <DynamicMarquee
             currentTranslation={0}
-            speed={windowWidth < 768 ? -0.2 : -0.1}
+            speed={windowWidth < 768 ? -0.1 : -0.05}
             color=""
             content={
               <div className="px-2 space-x-2 sm:space-x-8 flex">
+                <span
+                  className={`${blockFont.className} uppercase text-3xl sm:text-7xl`}
+                >
+                  {title}
+                </span>
                 <span
                   className={`${blockFont.className} uppercase text-3xl sm:text-7xl`}
                 >

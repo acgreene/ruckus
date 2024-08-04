@@ -21,7 +21,9 @@ export default function Home() {
         >
           Get Merch
         </span>
-        <ProductCarousel />
+        <div className="lg:flex lg:w-full lg:justify-center">
+          <ProductCarousel />
+        </div>
       </div>
 
       <div className="pb-36 sm:pt-36">

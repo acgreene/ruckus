@@ -8,9 +8,9 @@ interface PageProps {
 
 const Page: React.FC<PageProps> = ({}) => {
   return (
-    <div className="flex flex-col w-full py-12 space-y-12">
+    <div className="flex flex-col w-full py-12 space-y-12 lg:px-52">
       <div
-        className={`${featureFont.className} w-full sm:justify-end flex text-5xl sm:text-7xl`}
+        className={`${featureFont.className} w-full sm:justify-end flex text-5xl sm:text-7xl md:text-8xl`}
       >
         <div className="flex flex-col px-6 w-full sm:w-1/2">
           <div className="flex justify-start">

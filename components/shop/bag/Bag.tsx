@@ -171,7 +171,7 @@ const Bag: React.FC<BagProps> = ({}) => {
                     </div>
                     <div className="flex flex-row w-full justify-between items-center">
                       <div className="flex flex-row space-x-2">
-                        <div className="flex h-[80px] sm:h-[200px]">
+                        <div className="flex h-[80px] sm:h-[200px] lg:h-[300px]">
                           <img
                             src={item.img_src}
                             alt=""

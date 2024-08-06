@@ -65,7 +65,7 @@ const Shows: React.FC<ShowsProps> = ({}) => {
 
                     <span>{show?.venue_address}</span>
 
-                    {show?.url !== undefined ? (
+                    {show?.url !== null ? (
                       <Link href={`${show?.url}`}>
                         <div className="flex flex-row space-x-2 justify-start items-center border px-2 rounded-lg">
                           <FaTicketAlt className="text-ruckus-yellow" />
